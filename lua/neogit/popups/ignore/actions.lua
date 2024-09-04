@@ -59,7 +59,7 @@ function M.private_local(popup)
 end
 
 function M.private_global(popup)
-  local ignore_file = Path:new(git.config.get_global("core.excludesfile"):read())
+  local ignore_file = Path:new(vim.fn.expand(git.config.get_global("core.excludesfile"):read()))
   local rules = make_rules(popup, git.repo.git_root)
 
   add_rules(ignore_file, rules)
